@@ -80,7 +80,7 @@ class KustomizePlugin(BasePlugin):
         if self.config['enable_rendering']:
             try:
                 _ = subprocess.run(
-                    ['oc', 'version'],
+                    ['kustomize'],
                     stdout=subprocess.PIPE,
                     stderr=subprocess.PIPE,
                     check=True
@@ -395,7 +395,7 @@ resources:
             try:
                 # Run kustomize build on the directory
                 result = subprocess.run(
-                    ['oc', 'kustomize', kustomize_dir],
+                    ['kustomize', kustomize_dir],
                     stdout=subprocess.PIPE,
                     stderr=subprocess.PIPE,
                     check=True,
